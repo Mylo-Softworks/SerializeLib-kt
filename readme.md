@@ -55,16 +55,16 @@ import com.mylosoftworks.serializelib.Serializer
 import java.io.ByteArrayOutputStream
 
 // Create an object to serialize
-var exampleObject = SerializationExample().apply {
+val exampleObject = SerializationExample().apply {
     ExampleBool = true
 }
 
 // Serialize to a stream
-var stream = ByteArrayOutputStream()
+val stream = ByteArrayOutputStream()
 Serializer.Serialize(exampleObject, stream)
 
 // Serialize to a ByteArray
-var bytes = Serializer.Serialize(exampleObject)
+val bytes = Serializer.Serialize(exampleObject)
 
 // Serialize and write to file
 Serialize.SerializeToFile(exampleObject, "filename.bin")
@@ -77,13 +77,13 @@ import com.mylosoftworks.serializelib.Serializer
 import java.io.ByteArrayInputStream
 
 // Deserialize from a stream
-var stream = ByteArrayInputStream(ByteArray(0)) // In practice, this should be a stream with the serialized bytes
-var exampleObject = Serializer.Deserialize<SerializationExample>(stream)
+val stream = ByteArrayInputStream(ByteArray(0)) // In practice, this should be a stream with the serialized bytes
+val exampleObject = Serializer.Deserialize<SerializationExample>(stream)
 
 // Deserialize from a byte[]
-var bytes = ByteArray(0) // In practice, this should be a byte array with the serialized bytes
-var exampleObject = Serializer.Deserialize<SerializationExample>(bytes)
+val bytes = ByteArray(0) // In practice, this should be a byte array with the serialized bytes
+val exampleObject = Serializer.Deserialize<SerializationExample>(bytes)
 
 // Deserialize from a file
-var exampleObject = Serializer.DeserializeFromFile<SerializationExample>("filename.bin")
+val exampleObject = Serializer.DeserializeFromFile<SerializationExample>("filename.bin")
 ```
