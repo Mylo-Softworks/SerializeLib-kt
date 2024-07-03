@@ -52,7 +52,7 @@ object Serializer {
 
     fun serialize(obj: Any?, klass: Class<*>, stream: OutputStream, noError: Boolean = false) {
         if (isManualSerialized(klass)) {
-            (obj as SerializableClass<*>).genericSerialize(obj, stream)
+            (obj as SerializableClass<*>).genericSerialize(stream)
             return
         }
 

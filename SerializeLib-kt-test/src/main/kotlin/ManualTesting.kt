@@ -1,15 +1,8 @@
 import com.mylosoftworks.serializelib.Serializer
 import com.mylosoftworks.serializelib.annotations.SerializeClass
 import com.mylosoftworks.serializelib.annotations.SerializeField
-import com.mylosoftworks.serializelib.getGenericType
-import com.mylosoftworks.serializelib.interfaces.SerializableOverride
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
-import java.io.FileInputStream
-import java.io.FileOutputStream
-import java.io.InputStream
-import java.io.OutputStream
-import java.util.Arrays
 
 @SerializeClass
 class Serializable {
