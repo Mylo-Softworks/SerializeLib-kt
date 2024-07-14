@@ -1,6 +1,10 @@
 package com.mylosoftworks.serializelib.converter
 
+import com.mylosoftworks.serializelib.convertEndianNess
+
 fun Converter.convertFrom(bytes: ByteArray, target: Class<*>): Any? {
+    @Suppress("NAME_SHADOWING") val bytes = bytes.convertEndianNess()
+
     return when (target) {
         java.lang.Boolean::class.java, Boolean::class.java -> return bytes[0].toInt() == 1
 

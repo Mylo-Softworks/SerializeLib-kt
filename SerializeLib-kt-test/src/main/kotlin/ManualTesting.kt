@@ -11,9 +11,14 @@ class Serializable {
 
     @SerializeField(1)
     var testList: Array<Int> = arrayOf(0, 1, 2, 3)
+
+    @SerializeField(2)
+    var testInt: Int = 123
 }
 
 fun main() {
+    Serializer.UseBigEndian = true
+
     val inst = Serializable().apply {
         testVar = "This is a test!"
     }
@@ -24,6 +29,6 @@ fun main() {
     val inputStream = ByteArrayInputStream(serialized)
     val newInst = Serializer.deserialize<Serializable>(inputStream)
 
-    println(newInst?.testList?.get(2))
+    println(newInst?.testInt)
 
 }

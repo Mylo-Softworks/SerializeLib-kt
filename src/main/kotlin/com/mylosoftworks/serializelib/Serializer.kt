@@ -9,14 +9,23 @@ import com.mylosoftworks.serializelib.converter.isSupportedType
 import com.mylosoftworks.serializelib.interfaces.SerializableClass
 import com.mylosoftworks.serializelib.interfaces.SerializableOverride
 import com.mylosoftworks.serializelib.interfaces.genericSerialize
-import sun.reflect.generics.reflectiveObjects.TypeVariableImpl
 import java.io.InputStream
 import java.io.OutputStream
 import java.lang.reflect.Field
 import java.lang.reflect.Method
-import java.lang.reflect.ParameterizedType
+import java.nio.ByteOrder
+
+fun ByteArray.convertEndianNess(isBigEndian: Boolean? = null): ByteArray {
+    @Suppress("NAME_SHADOWING") val isBigEndian = isBigEndian ?: Serializer.IsBigEndian
+    if (isBigEndian == Serializer.UseBigEndian) return this
+    return this.reversedArray()
+}
 
 object Serializer {
+
+    val IsBigEndian: Boolean get() = ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN
+    var UseBigEndian: Boolean = IsBigEndian
+
     inline fun <reified T> serialize(obj: T, stream: OutputStream) {
         val klass = T::class.java
         serialize(obj, klass, stream)

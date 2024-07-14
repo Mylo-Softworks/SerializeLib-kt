@@ -1,5 +1,7 @@
 package com.mylosoftworks.serializelib.converter
 
+import com.mylosoftworks.serializelib.convertEndianNess
+
 fun Converter.convertTo(obj: Any): ByteArray? {
     return when (obj) {
         is Boolean -> if (obj) byteArrayOf(1) else byteArrayOf(0)
@@ -17,7 +19,7 @@ fun Converter.convertTo(obj: Any): ByteArray? {
         is Double -> obj.asByteArray()
 
         else -> null
-    }
+    }?.convertEndianNess()
 }
 
 // 2 bytes
