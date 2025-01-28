@@ -1,3 +1,5 @@
+[![](https://www.jitpack.io/v/Mylo-Softworks/SerializeLib-kt.svg)](https://www.jitpack.io/#Mylo-Softworks/SerializeLib-kt)
+
 [![Read the Docs](https://img.shields.io/readthedocs/serializelib)](https://serializelib.readthedocs.io/)
 
 # SerializeLib-kt
